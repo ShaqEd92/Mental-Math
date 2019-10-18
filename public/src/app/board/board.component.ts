@@ -3,11 +3,11 @@ import { HttpService } from '../http.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-board',
+  templateUrl: './board.component.html',
+  styleUrls: ['./board.component.css']
 })
-export class homeComponent implements OnInit {
+export class boardComponent implements OnInit {
 
   constructor(
     private _httpService: HttpService,

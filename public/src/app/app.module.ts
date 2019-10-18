@@ -7,12 +7,20 @@ import { AppComponent } from './app.component';
 import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HomeComponent } from './home/home.component';
+import { homeComponent } from './home/home.component';
+import { playComponent } from './play/play.component';
+import { statsComponent } from './stats/stats.component';
+import { boardComponent } from './board/board.component';
+import { errorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    homeComponent,
+    playComponent,
+    statsComponent,
+    boardComponent,
+    errorComponent
   ],
   imports: [
     BrowserModule,
