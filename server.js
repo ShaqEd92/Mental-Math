@@ -7,9 +7,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json())
 app.set('trust proxy', 1)
 
-app.all("*", (req,res,next) => {
-  res.sendFile(path.resolve("./public/dist/public/index.html"))
-});
+require('./server/config/routes.js')(app)
 
 app.listen(5000, function () {
     console.log("listening on port 5000");
