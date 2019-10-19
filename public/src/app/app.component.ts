@@ -8,8 +8,15 @@ import { HttpService } from './http.service';
 })
 export class AppComponent implements OnInit {
 
+  home = true;
+  play = false;
+  stats = false;
+  leaderBoard = false;
+
   constructor(private _httpService: HttpService){}
 
   ngOnInit() { }
+
+  
 
 }

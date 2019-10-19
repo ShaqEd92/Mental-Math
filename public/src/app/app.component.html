@@ -12,13 +12,39 @@
 <!-- Chalkboard -->
 <div style="padding: 4%">
   <div style="display: flex; justify-content: center">
-    <div id="chalkboard">
+
+    <div *ngIf="home" id="chalkboard">
       <button class="chalk" [routerLink]="['/play']">PLAY!</button>
       <br><br><br>
       <button class="chalk" [routerLink]="['/stats']">My Stats</button>
       <br><br><br>
       <button class="chalk" [routerLink]="['/board']">Leaderboard</button>
     </div>
+
+    <div *ngIf="play" id="chalkboard">
+      <button class="chalk" [routerLink]="['/play']">PLAY!</button>
+      <br><br><br>
+      <button class="chalk" [routerLink]="['/stats']">My Stats</button>
+      <br><br><br>
+      <button class="chalk" [routerLink]="['/board']">Leaderboard</button>
+    </div>
+
+    <div *ngIf="stats" id="chalkboard">
+      <button class="chalk" [routerLink]="['/play']">PLAY!</button>
+      <br><br><br>
+      <button class="chalk" [routerLink]="['/stats']">My Stats</button>
+      <br><br><br>
+      <button class="chalk" [routerLink]="['/board']">Leaderboard</button>
+    </div>
+
+    <div *ngIf="leaderBoard" id="chalkboard">
+      <button class="chalk" [routerLink]="['/play']">PLAY!</button>
+      <br><br><br>
+      <button class="chalk" [routerLink]="['/stats']">My Stats</button>
+      <br><br><br>
+      <button class="chalk" [routerLink]="['/board']">Leaderboard</button>
+    </div>
+
   </div>
 </div>
 
