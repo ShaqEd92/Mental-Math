@@ -1,0 +1,32 @@
+#chalkboard{
+    width: 72%;
+    height: 350px;
+    border: 12px solid burlywood;
+    background: darkslategray;
+    color: white;
+    font-weight: bold;
+    padding: 15px;    
+    overflow-y: auto
+}
+
+.chalk{
+    border: none;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 2.2em;
+}
+
+img{
+    height: 13vh;
+}
+
+.logo :hover{
+    -ms-transform: rotate(45deg);
+    -ms-transform-origin: 20% 40%; 
+    -webkit-transform: rotate(45deg); 
+    -webkit-transform-origin: 20% 40%; 
+    transform: rotate(15deg);
+    transform-origin: 20% 40%;
+}
