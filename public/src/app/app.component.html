@@ -5,7 +5,7 @@
   </h1>
 </div>
 <div style="width: 95%; text-align: right; margin-top: -5%;">
-  <a [routerLink]="['/']" class="logo"><img src="assets/logo.png" alt="website logo, a brain with math symbols"></a>
+  <a (click)="ngOnInit()" class="logo"><img src="assets/logo.png" alt="website logo, a brain with math symbols"></a>
 </div>
 
 
@@ -14,35 +14,32 @@
   <div style="display: flex; justify-content: center">
 
     <div *ngIf="home" id="chalkboard">
-      <button class="chalk" [routerLink]="['/play']">PLAY!</button>
+      <button class="chalk" (click)="showPlay()">PLAY!</button>
       <br><br><br>
-      <button class="chalk" [routerLink]="['/stats']">My Stats</button>
+      <button class="chalk" (click)="showStats()">My Stats</button>
       <br><br><br>
-      <button class="chalk" [routerLink]="['/board']">Leaderboard</button>
+      <button class="chalk" (click)="showLeaderBoard()">Leaderboard</button>
     </div>
 
     <div *ngIf="play" id="chalkboard">
-      <button class="chalk" [routerLink]="['/play']">PLAY!</button>
-      <br><br><br>
-      <button class="chalk" [routerLink]="['/stats']">My Stats</button>
-      <br><br><br>
-      <button class="chalk" [routerLink]="['/board']">Leaderboard</button>
+      <div style="display: flex; justify-content: space-evenly;">
+        <button class="chalk" (click)="easyQuestion()" class="btn-lg btn-success">EASY</button>
+        <button class="chalk" (click)="mediumQuestion()" class="btn-lg btn-warning">MEDIUM</button>
+        <button class="chalk" (click)="hardQuestion()" class="btn-lg btn-danger">HARD</button>
+        <button class="chalk" (click)="mentalQuestion()" class="btn-lg btn-dark">MENTAL</button>
+      </div>
+      <br><br>
+      <div class="mx-auto" style="width: 100%; text-align: center;">
+          <button class="chalk">{{x}} {{y}} {{z}}</button>
+      </div>
     </div>
 
     <div *ngIf="stats" id="chalkboard">
-      <button class="chalk" [routerLink]="['/play']">PLAY!</button>
-      <br><br><br>
-      <button class="chalk" [routerLink]="['/stats']">My Stats</button>
-      <br><br><br>
-      <button class="chalk" [routerLink]="['/board']">Leaderboard</button>
+      <button class="chalk">My Stats</button>
     </div>
 
     <div *ngIf="leaderBoard" id="chalkboard">
-      <button class="chalk" [routerLink]="['/play']">PLAY!</button>
-      <br><br><br>
-      <button class="chalk" [routerLink]="['/stats']">My Stats</button>
-      <br><br><br>
-      <button class="chalk" [routerLink]="['/board']">Leaderboard</button>
+      <button class="chalk">Leaderboard</button>
     </div>
 
   </div>
