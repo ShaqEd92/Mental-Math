@@ -14,18 +14,19 @@ export class AppComponent implements OnInit {
   leaderBoard = false;
   x: any;
   y: any;
+  sign: any;
   calculate: any;
   answer: any;
 
-  constructor(private _httpService: HttpService){}
+  constructor(private _httpService: HttpService) { }
 
-  ngOnInit() { 
+  ngOnInit() {
 
     this.home = true;
     this.play = false;
     this.stats = false;
     this.leaderBoard = false;
-    
+
   }
 
   showPlay() {
@@ -43,11 +44,36 @@ export class AppComponent implements OnInit {
     this.leaderBoard = true;
   }
 
-  easyQuestion(){
-
-    this.x = 2;
-    this.y = *;
-    this.z = 5;
+  easyQuestion() {
+    // Determine type of calculation
+    var options = ["add", "subtract", "divide", "multiply"]
+    this.calculate = options[Math.floor(Math.random() * 4)]
+    // Based on type of calculation determine the values x and y
+    // Present sign in text, calculate, and save solution
+    if (this.calculate == "add") {
+      this.x = Math.floor(Math.random() * 100);
+      this.y = Math.floor(Math.random() * 100);
+      this.sign = "+"
+      this.answer = this.x + this.y;
+    }
+    if (this.calculate == "subtract") {
+      this.y = Math.floor(Math.random() * 80);
+      this.x = this.y + Math.floor(Math.random() * 20);
+      this.sign = "-"
+      this.answer = this.x - this.y;
+    }
+    if (this.calculate == "divide") {
+      this.sign = "÷"
+      this.answer = Math.floor(Math.random() * 16)
+      this.y = Math.floor(Math.random() * 13);
+      this.x = this.answer * this.y;
+    }
+    if (this.calculate == "multiply") {
+      this.x = Math.floor(Math.random() * 11)+1;
+      this.y = Math.floor(Math.random() * 11)+1;
+      this.sign = "x"
+      this.answer = this.x * this.y;
+    }
   }
 
 }
