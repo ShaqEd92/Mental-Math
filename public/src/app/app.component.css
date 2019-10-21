@@ -6,7 +6,8 @@
     color: white;
     font-weight: bold;
     padding: 15px;    
-    overflow-y: auto
+    overflow-y: auto;
+    margin-top: -4%;
 }
 
 .chalk{
@@ -31,3 +32,44 @@ img{
     transform-origin: 20% 40%;
 }
 
+#scorecard{
+    display: grid;
+}
+
+#theScore, #theCard{
+    grid-area: 1 / 1;
+}
+
+#theCard{
+    height: 18vh;
+}
+
+#theScore{
+    text-align: center;
+    padding: 28% 25% 20% 20%;
+    color: red;
+    font-weight: bolder;
+    font-size: 1.8em;
+}
+
+/* Structural alternative */
+
+#noScorecard{
+    display: grid;
+}
+
+#noScore, #noCard{
+    grid-area: 1 / 1;
+}
+
+#noCard{
+    height: 18vh;
+}
+
+#noScore{
+    text-align: center;
+    padding: 28% 25% 20% 20%;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.8em;
+}

@@ -13,6 +13,9 @@ export class AppComponent implements OnInit {
   stats = false;
   leaderBoard = false;
 
+  showScore = false;
+  hideScore = true;
+
   x: any;
   y: any;
   sign: any;
@@ -32,12 +35,16 @@ export class AppComponent implements OnInit {
     this.play = false;
     this.stats = false;
     this.leaderBoard = false;
+    this.showScore = false;
+    this.hideScore = true;
 
   }
 
   showPlay() {
     this.home = false;
     this.play = true;
+    this.showScore = true;
+    this.hideScore = false;
   }
 
   showStats() {
