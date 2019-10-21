@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   showScore = false;
   hideScore = true;
 
+  notStarted = true;
+
   x: any;
   y: any;
   sign: any;
@@ -37,7 +39,8 @@ export class AppComponent implements OnInit {
     this.leaderBoard = false;
     this.showScore = false;
     this.hideScore = true;
-
+    this.notStarted = true;
+    
   }
 
   showPlay() {
@@ -58,6 +61,7 @@ export class AppComponent implements OnInit {
   }
 
   easyQuestion() {
+    this.notStarted = false;
     // Determine type of calculation
     var options = ["add", "subtract", "divide", "multiply"]
     this.calculate = options[Math.floor(Math.random() * 4)]
