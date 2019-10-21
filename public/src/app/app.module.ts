@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 
 import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CountdownModule, CountdownGlobalConfig, CountdownConfig } from 'ngx-countdown';
+
+export function countdownConfigFactory(): CountdownConfig {
+  return {};
+}
 
 @NgModule({
   declarations: [
@@ -14,10 +19,12 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    CountdownModule,
     AppRoutingModule
   ],
   providers: [
-    HttpService
+    HttpService,
+    [{ provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }]
   ],
   bootstrap: [AppComponent]
 })
