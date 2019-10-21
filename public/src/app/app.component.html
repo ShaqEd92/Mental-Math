@@ -1,13 +1,28 @@
 <br>
-<div class="mx-auto" style="text-align:center; width: 80%;">
-  <h1 style="color: gold; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-    MENTAL MATH
-  </h1>
+<div class="mx-auto" style="display: flex; justify-content: space-between; width:96%; margin-bottom: -2%;">
+  <div id="scorecard" *ngIf="showScore">
+    <img id="theCard" src="assets/scorecard.png" alt="score card">
+    <div id="theScore">
+      <p>{{score}}</p>
+    </div>
+  </div>
+  <!-- Structral alternative -->
+  <div id="noScorecard" *ngIf="hideScore">
+    <img id="noCard" src="assets/filler.png" alt="score card">
+    <div id="noScore">
+      <p>0</p>
+    </div>
+  </div>
+  <!-- / Structral alternative -->
+  <div>
+    <h1 style="color: gold; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+      MENTAL MATH
+    </h1>
+  </div>
+  <div>
+    <a (click)="ngOnInit()" class="logo"><img src="assets/logo.png" alt="website logo, a brain with math symbols"></a>
+  </div>
 </div>
-<div style="width: 95%; text-align: right; margin-top: -5%;">
-  <a (click)="ngOnInit()" class="logo"><img src="assets/logo.png" alt="website logo, a brain with math symbols"></a>
-</div>
-
 
 <!-- Chalkboard -->
 <div style="padding: 4%">
@@ -30,7 +45,7 @@
       </div>
       <br><br>
       <div class="mx-auto" style="width: 100%; text-align: center;">
-          <p class="chalk">{{x}} {{sign}} {{y}}</p>
+        <p class="chalk">{{x}} {{sign}} {{y}}</p>
       </div>
       <br><br>
       <div class="mx-auto" style="width: 100%; text-align: center;">
