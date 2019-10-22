@@ -1,21 +1,9 @@
-const maths = require('../controllers/maths');
+const players = require('../controllers/players');
     
 module.exports = function (app) {
 
-    app.get('/easy', function (req, res) {
-        maths.easy(req, res);
-    })
+    app.get('/players', players.show)
 
-    app.get('/medium', function (req, res) {
-        maths.medium(req, res);
-    })
-
-    app.get('/hard', function (req, res) {
-        maths.hard(req, res);
-    })
-
-    app.get('/super', function (req, res) {
-        maths.super(req, res);
-    })
+    app.post('/players', players.create)
 
 }
