@@ -95,6 +95,7 @@ export class AppComponent implements OnInit {
 
   // UPDATE TO MEDIUM DIFFICULTY
   mediumQuestion() {
+    this.notStarted = false;
     // Determine type of calculation
     var options = ["add", "subtract", "divide", "multiply"]
     this.calculate = options[Math.floor(Math.random() * 4)]
@@ -128,6 +129,7 @@ export class AppComponent implements OnInit {
 
     // UPDATE TO HARD DIFFICULTY
     hardQuestion() {
+      this.notStarted = false;
       // Determine type of calculation
       var options = ["add", "subtract", "divide", "multiply"]
       this.calculate = options[Math.floor(Math.random() * 4)]
