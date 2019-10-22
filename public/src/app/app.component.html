@@ -48,9 +48,12 @@
         <p class="chalk" *ngIf="notStarted">Pick a difficulty to begin!</p>
         <p class="chalk">{{x}} {{sign}} {{y}}</p>
       </div>
-      <br><br>
+      <br>
       <div class="mx-auto" style="width: 100%; text-align: center;">
-        Enter answer here: {{answer}}
+        <input (keyup)="answerQuestion($event)" type="text" name="Name"> &nbsp; &nbsp;
+        <button (click)="submitAnswer()" class="submitAnswerButton">Submit</button>
+        <br>
+        ANSWER: {{answer}}
       </div>
     </div>
 
