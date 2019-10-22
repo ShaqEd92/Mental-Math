@@ -43,17 +43,19 @@
         <button class="chalk" (click)="hardQuestion()" class="btn-lg btn-danger">HARD</button>
         <button class="chalk" (click)="mentalQuestion()" class="btn-lg btn-dark">MENTAL</button>
       </div>
-      <br><br>
-      <div class="mx-auto" style="width: 100%; text-align: center;">
-        <p class="chalk" *ngIf="notStarted">Pick a difficulty to begin!</p>
-        <p class="chalk">{{x}} {{sign}} {{y}}</p>
-      </div>
       <br>
       <div class="mx-auto" style="width: 100%; text-align: center;">
-        <input (keyup)="answerQuestion($event)" type="text" name="Name"> &nbsp; &nbsp;
-        <button (click)="submitAnswer()" class="submitAnswerButton">Submit</button>
-        <br>
-        ANSWER: {{answer}}
+        <p class="chalk" *ngIf="notStarted">Pick a difficulty to begin!</p>
+        <p class="chalk" *ngIf="showQuestion">{{x}} {{sign}} {{y}}</p>
+      </div>
+      <div class="mx-auto" style="width: 100%; text-align: center;">
+        <input (keyup)="answerQuestion($event)" type="number" name="Name" autocomplete="off" *ngIf="showSubmit">
+        <br><br>
+        <button (click)="submitAnswer()" class="btn-md btn-primary" *ngIf="showSubmit">Submit</button>
+        <br><br>
+        <p *ngIf="showAnswer">
+          ANSWER = {{answer}}
+        </p>
       </div>
     </div>
 
@@ -66,6 +68,11 @@
     </div>
 
   </div>
+</div>
+
+<div *ngIf="play" style="width: 100%; text-align: center; margin-top: -2%;">
+  <img *ngIf="right" src="assets/right.png" alt="a tick">
+  <img *ngIf="wrong" src="assets/wrong.png" alt="an x">
 </div>
 
 <router-outlet></router-outlet>

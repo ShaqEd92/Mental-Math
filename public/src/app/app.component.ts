@@ -15,6 +15,12 @@ export class AppComponent implements OnInit {
 
   showScore = false;
   hideScore = true;
+  showQuestion = false;
+  showAnswer = false;
+  showSubmit = false;
+
+  right = false;
+  wrong = false;
 
   notStarted = true;
 
@@ -28,13 +34,14 @@ export class AppComponent implements OnInit {
 
   yourAnswer: any;
 
-  name = "";
   score = 0;
+  newPlayer: any;
 
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
 
+    this.newPlayer = { Name: "", Score: 0}
     this.home = true;
     this.play = false;
     this.stats = false;
@@ -42,6 +49,11 @@ export class AppComponent implements OnInit {
     this.showScore = false;
     this.hideScore = true;
     this.notStarted = true;
+    this.showAnswer = false;
+    this.showQuestion = false;
+    this.showSubmit = false;
+    this.right = false;
+    this.wrong = false;
 
   }
 
@@ -64,10 +76,17 @@ export class AppComponent implements OnInit {
     this.leaderBoard = true;
   }
 
+  gameplay(){
+    this.notStarted = false;
+    this.showQuestion = true;
+    this.showAnswer = false;
+    this.showSubmit = true;
+  }
+
   // Generate EASY questions
   easyQuestion() {
-    this.notStarted = false;
     this.difficulty = "easy";
+    this.gameplay();
     // Determine type of calculation
     var options = ["add", "subtract", "divide", "multiply"]
     this.calculate = options[Math.floor(Math.random() * 4)]
@@ -101,7 +120,7 @@ export class AppComponent implements OnInit {
 
   // UPDATE TO MEDIUM DIFFICULTY
   mediumQuestion() {
-    this.notStarted = false;
+    this.gameplay();
     this.difficulty = "medium";
     // Determine type of calculation
     var options = ["add", "subtract", "divide", "multiply"]
@@ -136,7 +155,7 @@ export class AppComponent implements OnInit {
 
   // UPDATE TO HARD DIFFICULTY
   hardQuestion() {
-    this.notStarted = false;
+    this.gameplay();
     this.difficulty = "hard";
     // Determine type of calculation
     var options = ["add", "subtract", "divide", "multiply"]
@@ -171,7 +190,7 @@ export class AppComponent implements OnInit {
 
   // UPDATE TO MENTAL DIFFICULTY
   mentalQuestion() {
-    this.notStarted = false;
+    this.gameplay();
     this.difficulty = "mental";
     // Determine type of calculation
     var options = ["add", "subtract", "divide", "multiply"]
@@ -210,18 +229,40 @@ export class AppComponent implements OnInit {
   }
 
   submitAnswer() {
+    this.showSubmit = false;
+    this.showAnswer = true;
     if (this.yourAnswer == this.answer && this.difficulty == "easy") {
       this.score += 5;
+      this.right = true;
+      this.wrong = false;
     }
     if (this.yourAnswer == this.answer && this.difficulty == "medium") {
       this.score += 10;
+      this.right = true;
+      this.wrong = false;
     }
     if (this.yourAnswer == this.answer && this.difficulty == "hard") {
       this.score += 25;
+      this.right = true;
+      this.wrong = false;
     }
     if (this.yourAnswer == this.answer && this.difficulty == "mental") {
       this.score += 50;
+      this.right = true;
+      this.wrong = false;
+    }
+    if (this.yourAnswer != this.answer) {
+      this.score += 0;
+      this.right = false;
+      this.wrong = true;
     }
   }
+
+  // Save your progress
+  // Save(newPlayer){
+  //   console.log(this.newPlayer)
+  //   this._httpService.add(this.newPlayer).subscribe(data => {
+  //   })
+  // }
 
 }
