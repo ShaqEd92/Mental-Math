@@ -37,6 +37,8 @@ export class AppComponent implements OnInit {
   score = 0;
   newPlayer: any;
 
+  results = [];
+
   constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
@@ -259,10 +261,16 @@ export class AppComponent implements OnInit {
   }
 
   // Save your progress
-  // Save(newPlayer){
-  //   console.log(this.newPlayer)
-  //   this._httpService.add(this.newPlayer).subscribe(data => {
-  //   })
-  // }
+  Save(){
+    console.log(this.newPlayer)
+    this._httpService.add(this.newPlayer).subscribe(data => {
+    })
+  }
+
+  Display() {
+    this._httpService.show().subscribe(data => {
+      this.results = data['data'];
+    })
+  }
 
 }
