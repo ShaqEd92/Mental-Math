@@ -6,11 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient) { }
 
-    add(body){
-      return this._http.post(`/players`, body)
-    }
+  add(body) {
+    return this._http.post(`/players`, body)
+  }
 
-   }
+  show() {
+    return this._http.get(`/players`)
+  }
+
 }
