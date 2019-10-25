@@ -63,7 +63,7 @@
       <div style="padding-left: 15%;">
         <br>
         <label class="chalk">Name: &nbsp; </label>
-        <input (keyup)="newUser($event)" type="text" name="Name">
+        <input (keyup)="playerName($event)" type="text" name="Name">
         <br><br>
         <label class="chalk">Your Score: {{score}}</label>
         <br><br>
@@ -74,7 +74,9 @@
     </div>
 
     <div *ngIf="leaderBoard" id="chalkboard">
-      <button class="chalk">Leaderboard</button>
+      <p *ngFor="let result of results" class="chalk">
+        <span style="font-weight: bold">{{result.Name}}:</span> {{result.Score}}
+      </p>
     </div>
 
   </div>

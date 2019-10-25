@@ -16,6 +16,7 @@ module.exports = {
     },
 
     create: function (req, res) {
+        console.log(req.body)
         let newPlayer = new Player(req.body)
         newPlayer.save(function (err) {
             if (err) {

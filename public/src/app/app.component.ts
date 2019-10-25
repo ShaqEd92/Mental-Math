@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
 
   yourAnswer: any;
 
+  name = "";
   score = 0;
   newPlayer: any;
 
@@ -55,7 +56,8 @@ export class AppComponent implements OnInit {
     this.showQuestion = false;
     this.showSubmit = false;
     this.right = false;
-    this.wrong = false;
+    this.wrong = false;    
+    this.Display();
 
   }
 
@@ -261,10 +263,17 @@ export class AppComponent implements OnInit {
   }
 
   // Save your progress
+  playerName(data: any) {
+    this.name = data.target.value;
+  }
+
   Save() {
+    this.newPlayer.Name = this.name;
+    this.newPlayer.Score = this.score;
     console.log(this.newPlayer)
     this._httpService.add(this.newPlayer).subscribe(data => {
     })
+    this.ngOnInit();
   }
 
   Display() {
