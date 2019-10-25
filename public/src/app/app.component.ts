@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    this.newPlayer = { Name: "", Score: 0}
+    this.newPlayer = { Name: "", Score: 0 }
     this.home = true;
     this.play = false;
     this.stats = false;
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
     this.leaderBoard = true;
   }
 
-  gameplay(){
+  gameplay() {
     this.notStarted = false;
     this.showQuestion = true;
     this.showAnswer = false;
@@ -120,7 +120,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // UPDATE TO MEDIUM DIFFICULTY
+  // Generate MEDIUM questions
   mediumQuestion() {
     this.gameplay();
     this.difficulty = "medium";
@@ -130,26 +130,26 @@ export class AppComponent implements OnInit {
     // Based on type of calculation determine the values x and y
     // Present sign in text, calculate, and save solution
     if (this.calculate == "add") {
-      this.x = Math.floor(Math.random() * 100);
-      this.y = Math.floor(Math.random() * 100);
+      this.x = Math.floor(Math.random() * 1000) + Math.floor(Math.random() * 100);
+      this.y = Math.floor(Math.random() * 1000) + Math.floor(Math.random() * 100);
       this.sign = "+"
       this.answer = this.x + this.y;
     }
     if (this.calculate == "subtract") {
-      this.y = Math.floor(Math.random() * 80);
-      this.x = this.y + Math.floor(Math.random() * 20);
+      this.y = Math.floor(Math.random() * 800);
+      this.x = this.y + Math.floor(Math.random() * 200);
       this.sign = "-"
       this.answer = this.x - this.y;
     }
     if (this.calculate == "divide") {
       this.sign = "÷"
       this.answer = Math.floor(Math.random() * 16)
-      this.y = Math.floor(Math.random() * 13);
+      this.y = Math.floor(Math.random() * 13) + 13;
       this.x = this.answer * this.y;
     }
     if (this.calculate == "multiply") {
-      this.x = Math.floor(Math.random() * 11) + 1;
-      this.y = Math.floor(Math.random() * 11) + 1;
+      this.x = Math.floor(Math.random() * 13) + 12;
+      this.y = Math.floor(Math.random() * 13) + 12;
       this.sign = "x"
       this.answer = this.x * this.y;
     }
@@ -261,7 +261,7 @@ export class AppComponent implements OnInit {
   }
 
   // Save your progress
-  Save(){
+  Save() {
     console.log(this.newPlayer)
     this._httpService.add(this.newPlayer).subscribe(data => {
     })
