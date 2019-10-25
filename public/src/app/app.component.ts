@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
 
   home = true;
   play = false;
-  stats = false;
+  save = false;
   leaderBoard = false;
 
   showScore = false;
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
     this.newPlayer = { Name: "", Score: 0 }
     this.home = true;
     this.play = false;
-    this.stats = false;
+    this.save = false;
     this.leaderBoard = false;
     this.showScore = false;
     this.hideScore = true;
@@ -68,9 +68,9 @@ export class AppComponent implements OnInit {
     this.hideScore = false;
   }
 
-  showStats() {
+  showSave() {
     this.home = false;
-    this.stats = true;
+    this.save = true;
   }
 
   showLeaderBoard() {

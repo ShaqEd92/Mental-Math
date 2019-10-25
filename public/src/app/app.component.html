@@ -31,7 +31,7 @@
     <div *ngIf="home" id="chalkboard">
       <button class="chalk" (click)="showPlay()">PLAY!</button>
       <br><br><br>
-      <button class="chalk" (click)="showStats()">My Stats</button>
+      <button class="chalk" (click)="showSave()">Save</button>
       <br><br><br>
       <button class="chalk" (click)="showLeaderBoard()">Leaderboard</button>
     </div>
@@ -59,8 +59,18 @@
       </div>
     </div>
 
-    <div *ngIf="stats" id="chalkboard">
-      <button class="chalk">My Stats</button>
+    <div *ngIf="save" id="chalkboard">
+      <div style="padding-left: 15%;">
+        <br>
+        <label class="chalk">Name: &nbsp; </label>
+        <input (keyup)="newUser($event)" type="text" name="Name">
+        <br><br>
+        <label class="chalk">Your Score: {{score}}</label>
+        <br><br>
+      </div>
+      <div style="text-align: center;">
+        <button title="Save" (click)="Save()" class="saveButton"><img src="assets/save.png" alt="save icon"></button>
+      </div>
     </div>
 
     <div *ngIf="leaderBoard" id="chalkboard">
@@ -70,7 +80,7 @@
   </div>
 </div>
 
-<div *ngIf="play" style="width: 100%; text-align: center; margin-top: -2%;">
+<div *ngIf="play" style="width: 100%; text-align: center; margin-top: -5%;">
   <img *ngIf="right" src="assets/right.png" alt="a tick">
   <img *ngIf="wrong" src="assets/wrong.png" alt="an x">
 </div>
