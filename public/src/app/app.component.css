@@ -74,3 +74,8 @@ img{
     font-size: 1.8em;
 }
 
+.saveButton{
+    padding: 0;
+    border: transparent;
+    background: transparent;
+}
