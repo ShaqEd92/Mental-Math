@@ -110,7 +110,7 @@ export class AppComponent implements OnInit {
     }
     if (this.calculate == "divide") {
       this.sign = "÷"
-      this.answer = Math.floor(Math.random() * 16)
+      this.answer = Math.floor(Math.random() * 16) + 1;
       this.y = Math.floor(Math.random() * 13);
       this.x = this.answer * this.y;
     }
@@ -145,7 +145,7 @@ export class AppComponent implements OnInit {
     }
     if (this.calculate == "divide") {
       this.sign = "÷"
-      this.answer = Math.floor(Math.random() * 16)
+      this.answer = Math.floor(Math.random() * 16) + 1;
       this.y = Math.floor(Math.random() * 13) + 13;
       this.x = this.answer * this.y;
     }
@@ -162,68 +162,39 @@ export class AppComponent implements OnInit {
     this.gameplay();
     this.difficulty = "hard";
     // Determine type of calculation
-    var options = ["add", "subtract", "divide", "multiply"]
-    this.calculate = options[Math.floor(Math.random() * 4)]
+    var options = ["divide", "multiply", "squared", "cubed", "squareroot"]
+    this.calculate = options[Math.floor(Math.random() * 5)]
     // Based on type of calculation determine the values x and y
     // Present sign in text, calculate, and save solution
-    if (this.calculate == "add") {
-      this.x = Math.floor(Math.random() * 100);
-      this.y = Math.floor(Math.random() * 100);
-      this.sign = "+"
-      this.answer = this.x + this.y;
-    }
-    if (this.calculate == "subtract") {
-      this.y = Math.floor(Math.random() * 80);
-      this.x = this.y + Math.floor(Math.random() * 20);
-      this.sign = "-"
-      this.answer = this.x - this.y;
-    }
     if (this.calculate == "divide") {
       this.sign = "÷"
-      this.answer = Math.floor(Math.random() * 16)
-      this.y = Math.floor(Math.random() * 13);
+      this.answer = Math.floor(Math.random() * 16) + 1;
+      this.y = Math.floor(Math.random() * 16) + 15;
       this.x = this.answer * this.y;
     }
     if (this.calculate == "multiply") {
-      this.x = Math.floor(Math.random() * 11) + 1;
-      this.y = Math.floor(Math.random() * 11) + 1;
+      this.x = Math.floor(Math.random() * 11) + 15;
+      this.y = Math.floor(Math.random() * 11) + 15;
       this.sign = "x"
       this.answer = this.x * this.y;
     }
-  }
-
-  // UPDATE TO MENTAL DIFFICULTY
-  mentalQuestion() {
-    this.gameplay();
-    this.difficulty = "mental";
-    // Determine type of calculation
-    var options = ["add", "subtract", "divide", "multiply"]
-    this.calculate = options[Math.floor(Math.random() * 4)]
-    // Based on type of calculation determine the values x and y
-    // Present sign in text, calculate, and save solution
-    if (this.calculate == "add") {
-      this.x = Math.floor(Math.random() * 100);
-      this.y = Math.floor(Math.random() * 100);
-      this.sign = "+"
-      this.answer = this.x + this.y;
+    if (this.calculate == "squared") {
+      this.x = Math.floor(Math.random() * 14) + 11;
+      this.y = "";
+      this.sign = "²"
+      this.answer = this.x * this.x;
     }
-    if (this.calculate == "subtract") {
-      this.y = Math.floor(Math.random() * 80);
-      this.x = this.y + Math.floor(Math.random() * 20);
-      this.sign = "-"
-      this.answer = this.x - this.y;
+    if (this.calculate == "squareroot") {
+      this.x = ""
+      this.answer = Math.floor(Math.random() * 26) + 12;
+      this.y = this.answer * this.answer;
+      this.sign = "√"
     }
-    if (this.calculate == "divide") {
-      this.sign = "÷"
-      this.answer = Math.floor(Math.random() * 16)
-      this.y = Math.floor(Math.random() * 13);
-      this.x = this.answer * this.y;
-    }
-    if (this.calculate == "multiply") {
-      this.x = Math.floor(Math.random() * 11) + 1;
-      this.y = Math.floor(Math.random() * 11) + 1;
-      this.sign = "x"
-      this.answer = this.x * this.y;
+    if (this.calculate == "cubed") {
+      this.x = Math.floor(Math.random() * 16) + 5;
+      this.y = "";
+      this.sign = "³"
+      this.answer = this.x * this.x * this.x;
     }
   }
 
@@ -246,12 +217,7 @@ export class AppComponent implements OnInit {
       this.wrong = false;
     }
     if (this.yourAnswer == this.answer && this.difficulty == "hard") {
-      this.score += 25;
-      this.right = true;
-      this.wrong = false;
-    }
-    if (this.yourAnswer == this.answer && this.difficulty == "mental") {
-      this.score += 50;
+      this.score += 20;
       this.right = true;
       this.wrong = false;
     }
