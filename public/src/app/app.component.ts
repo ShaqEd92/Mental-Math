@@ -274,6 +274,8 @@ export class AppComponent implements OnInit {
     this._httpService.add(this.newPlayer).subscribe(data => {
     })
     this.ngOnInit();
+    this.score = 0;
+    this.name = "";
   }
 
   Display() {
