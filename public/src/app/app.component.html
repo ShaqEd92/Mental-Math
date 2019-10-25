@@ -73,10 +73,10 @@
       </div>
     </div>
 
-    <div *ngIf="leaderBoard" id="chalkboard">
-      <p *ngFor="let result of results" class="chalk">
+    <div *ngIf="leaderBoard" id="chalkboard"> 
+      <h3 *ngFor="let result of results" class="chalk">
         <span style="font-weight: bold">{{result.Name}}:</span> {{result.Score}}
-      </p>
+      </h3>
     </div>
 
   </div>

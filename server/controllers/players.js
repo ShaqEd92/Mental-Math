@@ -5,7 +5,7 @@ const Player = mongoose.model('Player');
 module.exports = {
 
     show: function (req, res) {
-        Player.find({}, null, {sort: {Type: 1}}, function (err, players) {
+        Player.find({}, null, {sort: {Score: -1}, limit: 10}, function (err, players) {
             if (err) {
                 res.json({ message: "Error", error: err })
             }
