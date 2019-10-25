@@ -9,6 +9,7 @@ export class HttpService {
   constructor(private _http: HttpClient) { }
 
   add(body) {
+    console.log(`Http Service: ${body} added to database`)
     return this._http.post(`/players`, body)
   }
 
