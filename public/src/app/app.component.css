@@ -84,3 +84,22 @@ img{
     font-size: 1.1em;
     margin-bottom: 2%;
 }
+
+#attemptClock{
+    display: grid;
+}
+
+#attempts, #clock{
+    grid-area: 1 / 1;
+}
+
+#clock{
+    height: 16vh;
+}
+
+#attempts{
+    padding: 3% 4% 3% 3%;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.65em;
+}

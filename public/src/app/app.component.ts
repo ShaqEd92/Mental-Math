@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
 
   notStarted = true;
 
+  ongoing = true;
+
   difficulty = "";
 
   x: any;
@@ -39,6 +41,8 @@ export class AppComponent implements OnInit {
   newPlayer: any;
 
   results = [];
+
+  attempts = 25;
 
   constructor(private _httpService: HttpService) { }
 
@@ -81,10 +85,15 @@ export class AppComponent implements OnInit {
   }
 
   gameplay() {
+    if(this.attempts == 0){
+      this.ongoing = false;
+      this.ngOnInit();
+    }
     this.notStarted = false;
     this.showQuestion = true;
     this.showAnswer = false;
     this.showSubmit = true;
+    this.attempts -= 1;
   }
 
   // Generate EASY questions
@@ -239,6 +248,7 @@ export class AppComponent implements OnInit {
     console.log(this.newPlayer)
     this._httpService.add(this.newPlayer).subscribe(data => {
     })
+    this.ongoing = true;
     this.ngOnInit();
     this.score = 0;
     this.name = "";
