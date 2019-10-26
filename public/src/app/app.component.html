@@ -29,7 +29,7 @@
   <div style="display: flex; justify-content: center">
 
     <div *ngIf="home" id="chalkboard">
-      <button class="chalk" (click)="showPlay()">PLAY!</button>
+      <button *ngIf="ongoing" class="chalk" (click)="showPlay()">PLAY!</button>
       <br><br><br>
       <button class="chalk" (click)="showSave()">Save</button>
       <br><br><br>
@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <div *ngIf="leaderBoard" id="chalkboard"> 
+    <div *ngIf="leaderBoard" id="chalkboard">
       <h3 *ngFor="let result of results" class="chalk">
         <span style="font-weight: bold">{{result.Name}}:</span> {{result.Score}}
       </h3>
@@ -84,6 +84,15 @@
 <div *ngIf="play" style="width: 100%; text-align: center; margin-top: -5%;">
   <img *ngIf="right" src="assets/right.png" alt="a tick">
   <img *ngIf="wrong" src="assets/wrong.png" alt="an x">
+</div>
+
+<div *ngIf="play" style="width: 90%; text-align: left; margin-top: -27%; margin-left: 2%;">
+  <div id="attemptClock">
+    <img id="clock" src="assets/clock.png" alt="a clock">
+    <div id="attempts">
+      <p>{{attempts}}</p>
+    </div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>
