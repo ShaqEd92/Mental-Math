@@ -90,7 +90,8 @@
   <div id="attemptClock">
     <img id="clock" src="assets/clock.png" alt="a clock">
     <div id="attempts">
-      <p>{{attempts}}</p>
+      <p *ngIf="attempts > 9">{{attempts}}</p>
+      <p *ngIf="10 > attempts" >&nbsp;{{attempts}}</p>
     </div>
   </div>
 </div>
