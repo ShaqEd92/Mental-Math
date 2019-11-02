@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './http.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -43,6 +44,9 @@ export class AppComponent implements OnInit {
   results = [];
 
   attempts = 25;
+
+  timeLeft: number = 60;
+  interval;
 
   constructor(private _httpService: HttpService) { }
 
@@ -94,6 +98,20 @@ export class AppComponent implements OnInit {
     this.showAnswer = false;
     this.showSubmit = true;
     this.attempts -= 1;
+  }
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 60;
+      }
+    },1000)
+  }
+
+  pauseTimer() {
+    clearInterval(this.interval);
   }
 
   // Generate EASY questions
