@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
 
   right = false;
   wrong = false;
+  noTime = false; 
 
   notStarted = true;
 
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
 
   attempts = 25;
 
-  timeLeft: number = 60;
+  timeLeft: number = 10;
   interval;
 
   constructor(private _httpService: HttpService) { }
@@ -64,7 +65,8 @@ export class AppComponent implements OnInit {
     this.showQuestion = false;
     this.showSubmit = false;
     this.right = false;
-    this.wrong = false;    
+    this.wrong = false;
+    this.noTime = false;
     this.Display();
 
   }
@@ -89,29 +91,44 @@ export class AppComponent implements OnInit {
   }
 
   gameplay() {
-    if(this.attempts == 0){
+    if (this.attempts == 0) {
       this.ongoing = false;
       this.ngOnInit();
     }
+    this.resetTimer()
+    this.startTimer()
     this.notStarted = false;
     this.showQuestion = true;
     this.showAnswer = false;
     this.showSubmit = true;
+    this.right = false;
+    this.wrong = false;
+    this.noTime = false;
     this.attempts -= 1;
   }
 
   startTimer() {
     this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
+      if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = 60;
+        this.timeUp();
       }
-    },1000)
+    }, 1000)
   }
 
-  pauseTimer() {
+  resetTimer() {
     clearInterval(this.interval);
+    this.timeLeft = 10;
+  }
+
+  timeUp() {
+    this.showSubmit = false;
+    this.showAnswer = true;
+    this.right = false;
+    this.wrong = false;
+    this.noTime = true;
+    this.resetTimer();    
   }
 
   // Generate EASY questions
@@ -233,6 +250,7 @@ export class AppComponent implements OnInit {
   submitAnswer() {
     this.showSubmit = false;
     this.showAnswer = true;
+    this.resetTimer();
     if (this.yourAnswer == this.answer && this.difficulty == "easy") {
       this.score += 5;
       this.right = true;
