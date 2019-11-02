@@ -85,11 +85,13 @@ img{
     margin-bottom: 2%;
 }
 
-#attemptClock{
+/* Clock */
+
+#timerClock{
     display: grid;
 }
 
-#attempts, #clock{
+#timer, #clock{
     grid-area: 1 / 1;
 }
 
@@ -97,9 +99,48 @@ img{
     height: 16vh;
 }
 
+#timer{
+    padding: 3% 4% 3% 3%;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.65em;
+}
+
+/* Attempts */
+
+#attemptPaper{
+    display: grid;
+}
+
+#attempts, #paper{
+    grid-area: 1 / 1;
+}
+
+#paper{
+    height: 18vh;
+}
+
 #attempts{
     padding: 3% 4% 3% 3%;
     color: black;
     font-weight: bolder;
     font-size: 1.65em;
+}
+
+#attempts p{
+    font-family: serif;
+    font-style: italic;
+    color: darkslategrey;
+}
+
+.correction{
+    margin-top: 1%;
+}
+
+#timeUp{
+    margin-top: 3%;
+    font-size: 2em;
+    color: red;
+    font-weight: bold;
+    font-family: fantasy;
 }

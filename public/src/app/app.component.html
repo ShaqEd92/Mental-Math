@@ -55,12 +55,6 @@
         <p *ngIf="showAnswer">
           ANSWER = {{answer}}
         </p>
-
-        <button (click)='startTimer()'>Start Timer</button>
-        <button (click)='pauseTimer()'>Pause</button>
-        
-        <p>{{timeLeft}} Seconds Left....</p>
-
       </div>
     </div>
 
@@ -88,13 +82,24 @@
 </div>
 
 <div *ngIf="play" style="width: 100%; text-align: center; margin-top: -5%;">
-  <img *ngIf="right" src="assets/right.png" alt="a tick">
-  <img *ngIf="wrong" src="assets/wrong.png" alt="an x">
+  <img class="correction" *ngIf="right" src="assets/right.png" alt="a tick">
+  <img class="correction" *ngIf="wrong" src="assets/wrong.png" alt="an x">
+  <h4 id="timeUp" *ngIf="noTime">TIME UP!</h4>
 </div>
 
 <div *ngIf="play" style="width: 90%; text-align: left; margin-top: -27%; margin-left: 2%;">
-  <div id="attemptClock">
+  <div id="timerClock">
     <img id="clock" src="assets/clock.png" alt="a clock">
+    <div id="timer">
+      <p *ngIf="timeLeft > 9">{{timeLeft}}</p>
+      <p *ngIf="10 > timeLeft" >&nbsp;{{timeLeft}}</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="play" style="width: 90%; text-align: left; margin-top: 2%; margin-left: 2%;">
+  <div id="attemptPaper">
+    <img id="paper" src="assets/paper.png" alt="paper">
     <div id="attempts">
       <p *ngIf="attempts > 9">{{attempts}}</p>
       <p *ngIf="10 > attempts" >&nbsp;{{attempts}}</p>
