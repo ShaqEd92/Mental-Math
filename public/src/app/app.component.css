@@ -1,6 +1,10 @@
+h1{
+    font-size: 8vh;
+}
+
 #chalkboard{
-    width: 72%;
-    height: 350px;
+    width: 70%;
+    height: 55vh;
     border: 12px solid burlywood;
     background: darkslategray;
     color: white;
@@ -16,11 +20,12 @@
     color: white;
     font-weight: bold;
     font-family: cursive;
-    font-size: 2.2em;
+    font-size: 200%;
 }
 
 img{
     height: 13vh;
+    width: auto;
 }
 
 .logo :hover{
@@ -42,6 +47,7 @@ img{
 
 #theCard{
     height: 18vh;
+    width: auto;
 }
 
 #theScore{
@@ -85,22 +91,30 @@ img{
     margin-bottom: 2%;
 }
 
+.gameStatus{
+    position: absolute;
+    text-align: left;
+    top: 26vh;
+    left: 2%;
+    width: 9%;
+    height: 37vh;
+}
+
 /* Clock */
-
-#timerClock{
-    display: grid;
-}
-
-#timer, #clock{
-    grid-area: 1 / 1;
-}
 
 #clock{
     height: 16vh;
 }
 
+#timerClock{
+    position: absolute; 
+}
+
 #timer{
-    padding: 3% 4% 3% 3%;
+    position: absolute;
+    text-align: left;
+    top: 6vh;
+    left: 34%;
     color: black;
     font-weight: bolder;
     font-size: 1.65em;
@@ -109,11 +123,10 @@ img{
 /* Attempts */
 
 #attemptPaper{
-    display: grid;
-}
-
-#attempts, #paper{
-    grid-area: 1 / 1;
+    position: absolute;
+    text-align: left;
+    top: 20vh;
+    left: 0;
 }
 
 #paper{
@@ -121,8 +134,10 @@ img{
 }
 
 #attempts{
-    padding: 3% 4% 3% 3%;
-    color: black;
+    position: absolute;
+    text-align: left;
+    top: 6vh;
+    left: 32%;
     font-weight: bolder;
     font-size: 1.65em;
 }
@@ -143,4 +158,32 @@ img{
     color: red;
     font-weight: bold;
     font-family: fantasy;
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+
+    #chalkboard {
+      width: 95%; /* The width is 95%, when the viewport is 800px or smaller */
+    }
+
+    h1{
+        font-size: 4vh;
+    }
+
+    .gameStatus{
+        position: fixed;
+        top: 80vh;
+        left: 0;
+        width: 100%;
+    }
+
+    #attemptPaper{
+        position: absolute;
+        text-align: left;
+        top: 0;
+        right: 0;
+        left: auto;
+    }
+  
 }

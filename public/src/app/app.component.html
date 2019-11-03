@@ -15,7 +15,8 @@
   </div>
   <!-- / Structral alternative -->
   <div>
-    <h1 style="color: gold; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <h1
+      style="color: gold; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align: center;">
       MENTAL MATH
     </h1>
   </div>
@@ -37,7 +38,7 @@
     </div>
 
     <div *ngIf="play" id="chalkboard">
-      <div style="display: flex; justify-content: space-evenly;">
+      <div style="display: flex; justify-content: space-around;">
         <button class="chalk" (click)="easyQuestion()" class="btn-lg btn-success">EASY</button>
         <button class="chalk" (click)="mediumQuestion()" class="btn-lg btn-warning">MEDIUM</button>
         <button class="chalk" (click)="hardQuestion()" class="btn-lg btn-danger">HARD</button>
@@ -80,29 +81,31 @@
 
   </div>
 </div>
+<!-- / Chalkboard -->
 
+<!-- Feedback -->
 <div *ngIf="play" style="width: 100%; text-align: center; margin-top: -5%;">
   <img class="correction" *ngIf="right" src="assets/right.png" alt="a tick">
   <img class="correction" *ngIf="wrong" src="assets/wrong.png" alt="an x">
   <h4 id="timeUp" *ngIf="noTime">TIME UP!</h4>
 </div>
+<!-- / Feedback -->
 
-<div *ngIf="play" style="width: 90%; text-align: left; margin-top: -27%; margin-left: 2%;">
+<div *ngIf="play" class="gameStatus">
+  <!-- Timer -->
   <div id="timerClock">
     <img id="clock" src="assets/clock.png" alt="a clock">
     <div id="timer">
       <p *ngIf="timeLeft > 9">{{timeLeft}}</p>
-      <p *ngIf="10 > timeLeft" >&nbsp;{{timeLeft}}</p>
+      <p *ngIf="10 > timeLeft">&nbsp;{{timeLeft}}</p>
     </div>
   </div>
-</div>
-
-<div *ngIf="play" style="width: 90%; text-align: left; margin-top: 2%; margin-left: 2%;">
+  <!-- Attempts Remaining -->
   <div id="attemptPaper">
     <img id="paper" src="assets/paper.png" alt="paper">
     <div id="attempts">
       <p *ngIf="attempts > 9">{{attempts}}</p>
-      <p *ngIf="10 > attempts" >&nbsp;{{attempts}}</p>
+      <p *ngIf="10 > attempts">&nbsp;{{attempts}}</p>
     </div>
   </div>
 </div>
