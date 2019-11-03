@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   right = false;
   wrong = false;
-  noTime = false; 
+  noTime = false;
 
   notStarted = true;
 
@@ -128,7 +128,7 @@ export class AppComponent implements OnInit {
     this.right = false;
     this.wrong = false;
     this.noTime = true;
-    this.resetTimer();    
+    this.resetTimer();
   }
 
   // Generate EASY questions
@@ -142,7 +142,7 @@ export class AppComponent implements OnInit {
     // Present sign in text, calculate, and save solution
     if (this.calculate == "add") {
       this.x = Math.floor(Math.random() * 100) + 2;
-      this.y = Math.floor(Math.random() * 100) +2;
+      this.y = Math.floor(Math.random() * 100) + 2;
       this.sign = "+"
       this.answer = this.x + this.y;
     }
@@ -186,10 +186,13 @@ export class AppComponent implements OnInit {
       this.x = this.y + Math.floor(Math.random() * 200);
       this.sign = "-"
       this.answer = this.x - this.y;
+      if (this.answer < 15) {
+        this.mediumQuestion();
+      }
     }
     if (this.calculate == "divide") {
       this.sign = "÷"
-      this.answer = Math.floor(Math.random() * 16) + 1;
+      this.answer = Math.floor(Math.random() * 16) + 2;
       this.y = Math.floor(Math.random() * 13) + 13;
       this.x = this.answer * this.y;
     }
