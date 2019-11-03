@@ -141,26 +141,26 @@ export class AppComponent implements OnInit {
     // Based on type of calculation determine the values x and y
     // Present sign in text, calculate, and save solution
     if (this.calculate == "add") {
-      this.x = Math.floor(Math.random() * 100);
-      this.y = Math.floor(Math.random() * 100);
+      this.x = Math.floor(Math.random() * 100) + 2;
+      this.y = Math.floor(Math.random() * 100) +2;
       this.sign = "+"
       this.answer = this.x + this.y;
     }
     if (this.calculate == "subtract") {
       this.y = Math.floor(Math.random() * 80);
-      this.x = this.y + Math.floor(Math.random() * 20);
+      this.x = this.y + Math.floor(Math.random() * 20) + 2;
       this.sign = "-"
       this.answer = this.x - this.y;
     }
     if (this.calculate == "divide") {
       this.sign = "÷"
-      this.answer = Math.floor(Math.random() * 16) + 1;
-      this.y = Math.floor(Math.random() * 13);
+      this.answer = Math.floor(Math.random() * 16) + 2;
+      this.y = Math.floor(Math.random() * 13) + 2;
       this.x = this.answer * this.y;
     }
     if (this.calculate == "multiply") {
-      this.x = Math.floor(Math.random() * 11) + 1;
-      this.y = Math.floor(Math.random() * 11) + 1;
+      this.x = Math.floor(Math.random() * 11) + 2;
+      this.y = Math.floor(Math.random() * 11) + 2;
       this.sign = "x"
       this.answer = this.x * this.y;
     }
@@ -212,7 +212,7 @@ export class AppComponent implements OnInit {
     // Present sign in text, calculate, and save solution
     if (this.calculate == "divide") {
       this.sign = "÷"
-      this.answer = Math.floor(Math.random() * 16) + 1;
+      this.answer = Math.floor(Math.random() * 16) + 11;
       this.y = Math.floor(Math.random() * 16) + 15;
       this.x = this.answer * this.y;
     }
