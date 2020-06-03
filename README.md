@@ -1,15 +1,33 @@
-MENTAL MATH
+# MENTAL MATH
 
-Application that generates math problem at a difficulty based on what the user selects.
+Web application where users add their favorite books, allowing other users to find books to read, and comment on discussion board.
 
+### Technologies 
 
-Built With:
+- Angular
+- Node.js
 
-Angular7
-Express.js 
-Bootstrap
+##### Other resources
 
+- Canva.com for icons.
 
-Resources:
+### Installation
 
-Canva.com for icons/pictures
+##### Requirements
+
+- node.js
+
+##### Launch
+
+In root of project folder:
+
+```console
+npm install
+npm start
+```
+
+Shut down with `Ctrl-C`
+
+### Screenshot
+
+<img src="https://i.ibb.co/9qdPc6s/math.png" alt="math" border="0">
