@@ -1,6 +1,6 @@
 # MENTAL MATH
 
-Web application where users add their favorite books, allowing other users to find books to read, and comment on discussion board.
+Angular app that randomly-generates arithmetic questions based on the difficulty selected. Users are awarded points based on difficulty of question selected. App features include attempts remaining, countdown timer, and leaderboard.
 
 ### Technologies 
 
