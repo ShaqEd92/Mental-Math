@@ -1,43 +1,42 @@
 <br>
-<div class="mx-auto" style="display: flex; justify-content: space-between; width:96%; margin-bottom: -2%;">
-  <div id="scorecard" *ngIf="showScore">
-    <img id="theCard" src="assets/scorecard.png" alt="score card">
-    <div id="theScore">
+<header class="mx-auto">
+  <div class="scorecard" *ngIf="showScore">
+    <img class="theCard" src="assets/scorecard.png" alt="score card">
+    <div class="theScore">
       <p>{{score}}</p>
     </div>
   </div>
-  <!-- Structral alternative -->
-  <div id="noScorecard" *ngIf="hideScore">
-    <img id="noCard" src="assets/filler.png" alt="score card">
-    <div id="noScore">
+  <!-- Structural alternative -->
+  <div class="noScoreCard" *ngIf="hideScore">
+    <img class="noCard" src="assets/filler.png" alt="score card">
+    <div class="noScore">
       <p>0</p>
     </div>
   </div>
-  <!-- / Structral alternative -->
+  <!-- / Structural alternative -->
   <div>
-    <h1
-      style="color: gold; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align: center;">
+    <h1>
       MENTAL MATH
     </h1>
   </div>
   <div>
     <a (click)="ngOnInit()" class="logo"><img src="assets/logo.png" alt="website logo, a brain with math symbols"></a>
   </div>
-</div>
+</header>
 
 <!-- Chalkboard -->
 <div style="padding: 4%">
   <div style="display: flex; justify-content: center">
 
-    <div *ngIf="home" id="chalkboard">
+    <div *ngIf="home" class="chalkboard">
       <button *ngIf="ongoing" class="chalk" (click)="showPlay()">PLAY!</button>
       <br><br><br>
       <button class="chalk" (click)="showSave()">Save</button>
       <br><br><br>
-      <button class="chalk" (click)="showLeaderBoard()">Leaderboard</button>
+      <button class="chalk" (click)="showLeaderBoard()">Leader Board</button>
     </div>
 
-    <div *ngIf="play" id="chalkboard">
+    <div *ngIf="play" class="chalkboard">
       <div style="display: flex; justify-content: space-around;">
         <button class="chalk" (click)="easyQuestion()" class="btn-lg btn-success">EASY</button>
         <button class="chalk" (click)="mediumQuestion()" class="btn-lg btn-warning">MEDIUM</button>
@@ -59,7 +58,7 @@
       </div>
     </div>
 
-    <div *ngIf="save" id="chalkboard">
+    <div *ngIf="save" class="chalkboard">
       <div style="padding-left: 15%;">
         <br>
         <label class="chalk">Name: &nbsp; </label>
@@ -73,7 +72,7 @@
       </div>
     </div>
 
-    <div *ngIf="leaderBoard" id="chalkboard">
+    <div *ngIf="leaderBoard" class="chalkboard">
       <h3 *ngFor="let result of results" class="chalk">
         <span style="font-weight: bold">{{result.Name}}:</span> {{result.Score}}
       </h3>
@@ -87,27 +86,29 @@
 <div *ngIf="play" style="width: 100%; text-align: center; margin-top: -5%;">
   <img class="correction" *ngIf="right" src="assets/right.png" alt="a tick">
   <img class="correction" *ngIf="wrong" src="assets/wrong.png" alt="an x">
-  <h4 id="timeUp" *ngIf="noTime">TIME UP!</h4>
+  <h4 class="timeUp" *ngIf="noTime">TIME UP!</h4>
 </div>
 <!-- / Feedback -->
 
 <div *ngIf="play" class="gameStatus">
   <!-- Timer -->
-  <div id="timerClock">
-    <img id="clock" src="assets/clock.png" alt="a clock">
-    <div id="timer">
+  <div class="timerClock">
+    <img class="clock" src="assets/clock.png" alt="a clock">
+    <div class="timer">
       <p *ngIf="timeLeft > 9">{{timeLeft}}</p>
       <p *ngIf="10 > timeLeft">&nbsp;{{timeLeft}}</p>
     </div>
   </div>
   <!-- Attempts Remaining -->
-  <div id="attemptPaper">
-    <img id="paper" src="assets/paper.png" alt="paper">
-    <div id="attempts">
+  <div class="attemptPaper">
+    <img class="paper" src="assets/paper.png" alt="paper">
+    <div class="attempts">
       <p *ngIf="attempts > 9">{{attempts}}</p>
       <p *ngIf="10 > attempts">&nbsp;{{attempts}}</p>
     </div>
   </div>
 </div>
+
+<footer>Created by&nbsp;<a href="https://shaqed92.github.io/" target="blank">Shaquille Edwards</a></footer>
 
 <router-outlet></router-outlet>

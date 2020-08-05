@@ -1,8 +1,65 @@
-h1{
-    font-size: 8vh;
+header{
+    display: flex; 
+    justify-content: space-between; 
+    width:96%; 
+    margin-bottom: -2%;
 }
 
-#chalkboard{
+h1{
+    font-size: 8vh;
+    color: gold; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    text-align: center;
+}
+
+/* HEADER STYLES */
+
+.scorecard{
+    display: grid;
+}
+
+.theScore, .theCard{
+    grid-area: 1 / 1;
+}
+
+.theCard{
+    height: 18vh;
+    width: auto;
+}
+
+.theScore{
+    text-align: center;
+    padding: 28% 25% 20% 20%;
+    color: red;
+    font-weight: bolder;
+    font-size: 1.8em;
+}
+
+/* Structural alternative */
+
+.noScoreCard{
+    display: grid;
+}
+
+.noScore, .noCard{
+    grid-area: 1 / 1;
+}
+
+.noCard{
+    height: 18vh;
+}
+
+.noScore{
+    text-align: center;
+    padding: 28% 25% 20% 20%;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.8em;
+}
+
+/* GAME BOARD STYLES */
+
+.chalkboard{
     width: 70%;
     height: 55vh;
     border: 12px solid burlywood;
@@ -37,56 +94,13 @@ img{
     transform-origin: 20% 40%;
 }
 
-#scorecard{
-    display: grid;
-}
-
-#theScore, #theCard{
-    grid-area: 1 / 1;
-}
-
-#theCard{
-    height: 18vh;
-    width: auto;
-}
-
-#theScore{
-    text-align: center;
-    padding: 28% 25% 20% 20%;
-    color: red;
-    font-weight: bolder;
-    font-size: 1.8em;
-}
-
-/* Structural alternative */
-
-#noScorecard{
-    display: grid;
-}
-
-#noScore, #noCard{
-    grid-area: 1 / 1;
-}
-
-#noCard{
-    height: 18vh;
-}
-
-#noScore{
-    text-align: center;
-    padding: 28% 25% 20% 20%;
-    color: black;
-    font-weight: bolder;
-    font-size: 1.8em;
-}
-
 .saveButton{
     padding: 0;
     border: transparent;
     background: transparent;
 }
 
-#chalkboard h3{
+.chalkboard h3{
     font-size: 1.1em;
     margin-bottom: 2%;
 }
@@ -102,15 +116,15 @@ img{
 
 /* Clock */
 
-#clock{
+.clock{
     height: 16vh;
 }
 
-#timerClock{
+.timerClock{
     position: absolute; 
 }
 
-#timer{
+.timer{
     position: absolute;
     text-align: left;
     top: 6vh;
@@ -122,18 +136,18 @@ img{
 
 /* Attempts */
 
-#attemptPaper{
+.attemptPaper{
     position: absolute;
     text-align: left;
     top: 20vh;
     left: 0;
 }
 
-#paper{
+.paper{
     height: 18vh;
 }
 
-#attempts{
+.attempts{
     position: absolute;
     text-align: left;
     top: 6vh;
@@ -142,7 +156,7 @@ img{
     font-size: 1.65em;
 }
 
-#attempts p{
+.attempts p{
     font-family: serif;
     font-style: italic;
     color: darkslategrey;
@@ -152,7 +166,7 @@ img{
     margin-top: 1%;
 }
 
-#timeUp{
+.timeUp{
     margin-top: 3%;
     font-size: 2em;
     color: red;
@@ -160,15 +174,30 @@ img{
     font-family: fantasy;
 }
 
-/* Use a media query to add a breakpoint at 800px: */
-@media screen and (max-width: 800px) {
+footer{
+    background-color: burlywood;
+    border: 1px solid darkslategrey;
+    height: 5vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    #chalkboard {
-      width: 95%; /* The width is 95%, when the viewport is 800px or smaller */
-    }
+footer a{
+    color: darkslategrey;
+}
+
+@media screen and (max-width: 800px) {
 
     h1{
         font-size: 4vh;
+    }
+
+    .chalkboard {
+      width: 95%;
     }
 
     .gameStatus{
@@ -178,7 +207,7 @@ img{
         width: 100%;
     }
 
-    #attemptPaper{
+    .attemptPaper{
         position: absolute;
         text-align: left;
         top: 0;

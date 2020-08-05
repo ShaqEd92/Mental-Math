@@ -2,8 +2,8 @@ const players = require('../controllers/players');
     
 module.exports = function (app) {
 
-    app.get('/players', players.show)
+    app.get('api/players', players.show)
 
-    app.post('/players', players.create)
+    app.post('api/players', players.create)
 
 }
