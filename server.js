@@ -9,8 +9,6 @@ app.set('trust proxy', 1)
 
 require('./server/config/routes.js')(app)
 
-app.listen(5000, function () {
-    console.log("listening on port 5000");
+app.listen(8080, function () {
+    console.log("listening on port 8080");
 })
-
-
