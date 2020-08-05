@@ -71,8 +71,6 @@ export class AppComponent implements OnInit {
 
   }
 
-  // METHODS
-
   showPlay() {
     this.home = false;
     this.play = true;
@@ -295,6 +293,7 @@ export class AppComponent implements OnInit {
 
   Display() {
     this._httpService.show().subscribe(data => {
+      console.log(data)
       this.results = data['data'];
     })
   }
