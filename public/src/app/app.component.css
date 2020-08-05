@@ -1,0 +1,218 @@
+header{
+    display: flex; 
+    justify-content: space-between; 
+    width:96%; 
+    margin-bottom: -2%;
+}
+
+h1{
+    font-size: 8vh;
+    color: gold; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    text-align: center;
+}
+
+/* HEADER STYLES */
+
+.scorecard{
+    display: grid;
+}
+
+.theScore, .theCard{
+    grid-area: 1 / 1;
+}
+
+.theCard{
+    height: 18vh;
+    width: auto;
+}
+
+.theScore{
+    text-align: center;
+    padding: 28% 25% 20% 20%;
+    color: red;
+    font-weight: bolder;
+    font-size: 1.8em;
+}
+
+/* Structural alternative */
+
+.noScoreCard{
+    display: grid;
+}
+
+.noScore, .noCard{
+    grid-area: 1 / 1;
+}
+
+.noCard{
+    height: 18vh;
+}
+
+.noScore{
+    text-align: center;
+    padding: 28% 25% 20% 20%;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.8em;
+}
+
+/* GAME BOARD STYLES */
+
+.chalkboard{
+    width: 70%;
+    height: 55vh;
+    border: 12px solid burlywood;
+    background: darkslategray;
+    color: white;
+    font-weight: bold;
+    padding: 15px;    
+    overflow-y: auto;
+    margin-top: -4%;
+}
+
+.chalk{
+    border: none;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    font-family: cursive;
+    font-size: 200%;
+}
+
+img{
+    height: 13vh;
+    width: auto;
+}
+
+.logo :hover{
+    -ms-transform: rotate(45deg);
+    -ms-transform-origin: 20% 40%; 
+    -webkit-transform: rotate(45deg); 
+    -webkit-transform-origin: 20% 40%; 
+    transform: rotate(15deg);
+    transform-origin: 20% 40%;
+}
+
+.saveButton{
+    padding: 0;
+    border: transparent;
+    background: transparent;
+}
+
+.chalkboard h3{
+    font-size: 1.1em;
+    margin-bottom: 2%;
+}
+
+.gameStatus{
+    position: absolute;
+    text-align: left;
+    top: 26vh;
+    left: 2%;
+    width: 9%;
+    height: 37vh;
+}
+
+/* Clock */
+
+.clock{
+    height: 16vh;
+}
+
+.timerClock{
+    position: absolute; 
+}
+
+.timer{
+    position: absolute;
+    text-align: left;
+    top: 6vh;
+    left: 34%;
+    color: black;
+    font-weight: bolder;
+    font-size: 1.65em;
+}
+
+/* Attempts */
+
+.attemptPaper{
+    position: absolute;
+    text-align: left;
+    top: 20vh;
+    left: 0;
+}
+
+.paper{
+    height: 18vh;
+}
+
+.attempts{
+    position: absolute;
+    text-align: left;
+    top: 6vh;
+    left: 32%;
+    font-weight: bolder;
+    font-size: 1.65em;
+}
+
+.attempts p{
+    font-family: serif;
+    font-style: italic;
+    color: darkslategrey;
+}
+
+.correction{
+    margin-top: 1%;
+}
+
+.timeUp{
+    margin-top: 3%;
+    font-size: 2em;
+    color: red;
+    font-weight: bold;
+    font-family: fantasy;
+}
+
+footer{
+    background-color: burlywood;
+    border: 1px solid darkslategrey;
+    height: 5vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a{
+    color: darkslategrey;
+}
+
+@media screen and (max-width: 800px) {
+
+    h1{
+        font-size: 4vh;
+    }
+
+    .chalkboard {
+      width: 95%;
+    }
+
+    .gameStatus{
+        position: fixed;
+        top: 80vh;
+        left: 0;
+        width: 100%;
+    }
+
+    .attemptPaper{
+        position: absolute;
+        text-align: left;
+        top: 0;
+        right: 0;
+        left: auto;
+    }
+  
+}

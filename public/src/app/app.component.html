@@ -1,0 +1,114 @@
+<br>
+<header class="mx-auto">
+  <div class="scorecard" *ngIf="showScore">
+    <img class="theCard" src="assets/scorecard.png" alt="score card">
+    <div class="theScore">
+      <p>{{score}}</p>
+    </div>
+  </div>
+  <!-- Structural alternative -->
+  <div class="noScoreCard" *ngIf="hideScore">
+    <img class="noCard" src="assets/filler.png" alt="score card">
+    <div class="noScore">
+      <p>0</p>
+    </div>
+  </div>
+  <!-- / Structural alternative -->
+  <div>
+    <h1>
+      MENTAL MATH
+    </h1>
+  </div>
+  <div>
+    <a (click)="ngOnInit()" class="logo"><img src="assets/logo.png" alt="website logo, a brain with math symbols"></a>
+  </div>
+</header>
+
+<!-- Chalkboard -->
+<div style="padding: 4%">
+  <div style="display: flex; justify-content: center">
+
+    <div *ngIf="home" class="chalkboard">
+      <button *ngIf="ongoing" class="chalk" (click)="showPlay()">PLAY!</button>
+      <br><br><br>
+      <button class="chalk" (click)="showSave()">Save</button>
+      <br><br><br>
+      <button class="chalk" (click)="showLeaderBoard()">Leader Board</button>
+    </div>
+
+    <div *ngIf="play" class="chalkboard">
+      <div style="display: flex; justify-content: space-around;">
+        <button class="chalk" (click)="easyQuestion()" class="btn-lg btn-success">EASY</button>
+        <button class="chalk" (click)="mediumQuestion()" class="btn-lg btn-warning">MEDIUM</button>
+        <button class="chalk" (click)="hardQuestion()" class="btn-lg btn-danger">HARD</button>
+      </div>
+      <br>
+      <div class="mx-auto" style="width: 100%; text-align: center;">
+        <p class="chalk" *ngIf="notStarted">Pick a difficulty to begin!</p>
+        <p class="chalk" *ngIf="showQuestion">{{x}} {{sign}} {{y}}</p>
+      </div>
+      <div class="mx-auto" style="width: 100%; text-align: center;">
+        <input (keyup)="answerQuestion($event)" type="number" name="Name" autocomplete="off" *ngIf="showSubmit">
+        <br><br>
+        <button (click)="submitAnswer()" class="btn-md btn-primary" *ngIf="showSubmit">Submit</button>
+        <br><br>
+        <p *ngIf="showAnswer">
+          ANSWER = {{answer}}
+        </p>
+      </div>
+    </div>
+
+    <div *ngIf="save" class="chalkboard">
+      <div style="padding-left: 15%;">
+        <br>
+        <label class="chalk">Name: &nbsp; </label>
+        <input (keyup)="playerName($event)" type="text" name="Name">
+        <br><br>
+        <label class="chalk">Your Score: {{score}}</label>
+        <br><br>
+      </div>
+      <div style="text-align: center;">
+        <button title="Save" (click)="Save()" class="saveButton"><img src="assets/save.png" alt="save icon"></button>
+      </div>
+    </div>
+
+    <div *ngIf="leaderBoard" class="chalkboard">
+      <h3 *ngFor="let result of results" class="chalk">
+        <span style="font-weight: bold">{{result.Name}}:</span> {{result.Score}}
+      </h3>
+    </div>
+
+  </div>
+</div>
+<!-- / Chalkboard -->
+
+<!-- Feedback -->
+<div *ngIf="play" style="width: 100%; text-align: center; margin-top: -5%;">
+  <img class="correction" *ngIf="right" src="assets/right.png" alt="a tick">
+  <img class="correction" *ngIf="wrong" src="assets/wrong.png" alt="an x">
+  <h4 class="timeUp" *ngIf="noTime">TIME UP!</h4>
+</div>
+<!-- / Feedback -->
+
+<div *ngIf="play" class="gameStatus">
+  <!-- Timer -->
+  <div class="timerClock">
+    <img class="clock" src="assets/clock.png" alt="a clock">
+    <div class="timer">
+      <p *ngIf="timeLeft > 9">{{timeLeft}}</p>
+      <p *ngIf="10 > timeLeft">&nbsp;{{timeLeft}}</p>
+    </div>
+  </div>
+  <!-- Attempts Remaining -->
+  <div class="attemptPaper">
+    <img class="paper" src="assets/paper.png" alt="paper">
+    <div class="attempts">
+      <p *ngIf="attempts > 9">{{attempts}}</p>
+      <p *ngIf="10 > attempts">&nbsp;{{attempts}}</p>
+    </div>
+  </div>
+</div>
+
+<footer>Created by&nbsp;<a href="https://shaqed92.github.io/" target="blank">Shaquille Edwards</a></footer>
+
+<router-outlet></router-outlet>

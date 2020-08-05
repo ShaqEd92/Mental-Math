@@ -1,1 +1,12 @@
+<<<<<<< HEAD
 node_modules
+=======
+.DS_Store
+.idea
+.vagrant
+bootstrap.sh
+VagrantFile
+bower_components/
+node_modules
+package-lock.json
+>>>>>>> 2bb6f6b1621120ac26a5b6ba7d6b3451750a672d
